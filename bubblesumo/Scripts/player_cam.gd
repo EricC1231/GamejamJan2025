@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		player.apply_force(-camPivot.transform.basis.z * 10)
 	if(Input.is_action_pressed("InputBack")):
 		player.apply_force(camPivot.transform.basis.z * 10)
+	if(Input.is_action_pressed("Jump")):
+		player.apply_force(Vector3.UP*20)
 	camPivot.position = player.position
 	#if(Input.is_action_pressed("InputRight")):
 		#camPivot.rotate(Vector3.UP,0.1*delta)
