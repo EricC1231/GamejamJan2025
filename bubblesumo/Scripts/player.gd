@@ -11,6 +11,9 @@ func died() -> void:
 	self.position = startingpos
 	self.linear_velocity = Vector3.ZERO
 	self.angular_velocity = Vector3.ZERO
+	GlobalScore.P2_Score += 1
+	$"../Control/Scoreval".text = str(GlobalScore.P1_Score)
+	$"../Control/Scoreval2".text = str(GlobalScore.P2_Score)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

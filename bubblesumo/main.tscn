@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4s5x57gethre"]
+[gd_scene load_steps=11 format=3 uid="uid://c4s5x57gethre"]
 
 [ext_resource type="PackedScene" uid="uid://ddypi0vsknqu8" path="res://Scenes/player.tscn" id="1_i6ex8"]
 [ext_resource type="PackedScene" uid="uid://d2rpf1ntb4emp" path="res://Scenes/launch_platform.tscn" id="2_4pv1b"]
 [ext_resource type="PackedScene" uid="uid://c4s5j3ira4qoy" path="res://Scenes/bumper.tscn" id="3_dctji"]
+[ext_resource type="ArrayMesh" uid="uid://b44c2wpbut14g" path="res://3dModels/Arena.obj" id="4_isgr4"]
 
 [sub_resource type="Gradient" id="Gradient_fff1t"]
 colors = PackedColorArray(5.58317e-06, 0.64618, 0.892941, 1, 1, 0.539309, 0.492153, 1)
@@ -47,3 +48,7 @@ shadow_enabled = true
 [node name="LaunchPlatform" parent="." instance=ExtResource("2_4pv1b")]
 
 [node name="bumper" parent="." instance=ExtResource("3_dctji")]
+
+[node name="Arena" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6919, 0.147503, -21.6388)
+mesh = ExtResource("4_isgr4")

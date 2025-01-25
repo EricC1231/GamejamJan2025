@@ -34,3 +34,52 @@ transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 
 [node name="PlayerCam" type="Camera3D" parent="CamPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.978807, 0.204786, 0, -0.204786, 0.978807, 0.263226, 1.92322, 3.39712)
 script = ExtResource("3_lg13l")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="P1Score" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_right = 153.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 29
+text = "P1 Score:"
+
+[node name="Scoreval" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 1.0
+offset_right = 246.0
+offset_bottom = 41.0
+theme_override_font_sizes/normal_font_size = 29
+text = "0"
+
+[node name="P1Score2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 905.0
+offset_top = 1.0
+offset_right = 1058.0
+offset_bottom = 41.0
+theme_override_font_sizes/normal_font_size = 29
+text = "P2 Score:"
+
+[node name="Scoreval2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 42.0
+theme_override_font_sizes/normal_font_size = 29
+text = "0"
+
+[node name="Scoreval3" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 4.0
+offset_right = 597.0
+offset_bottom = 44.0
+theme_override_font_sizes/normal_font_size = 29
+text = "5:00"
