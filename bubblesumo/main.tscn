@@ -1,3 +1,73 @@
-[gd_scene format=3 uid="uid://c4s5x57gethre"]
+[gd_scene load_steps=12 format=3 uid="uid://c4s5x57gethre"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_vnuaj"]
+[ext_resource type="Script" path="res://Scripts/player_cam.gd" id="2_uctu7"]
+
+[sub_resource type="Gradient" id="Gradient_fff1t"]
+colors = PackedColorArray(5.58317e-06, 0.64618, 0.892941, 1, 1, 0.539309, 0.492153, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5bm8m"]
+noise_type = 2
+frequency = 0.1028
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n83xq"]
+color_ramp = SubResource("Gradient_fff1t")
+noise = SubResource("FastNoiseLite_5bm8m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcfxr"]
+albedo_texture = SubResource("NoiseTexture2D_n83xq")
+albedo_texture_force_srgb = true
+roughness = 0.65
+
+[sub_resource type="BoxMesh" id="BoxMesh_clt03"]
+material = SubResource("StandardMaterial3D_gcfxr")
+size = Vector3(60, 0.295, 60)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_opose"]
+points = PackedVector3Array(-11.8475, -0.1475, -8.2925, -11.8475, 0.1475, -8.2925, 11.8475, -0.1475, -8.2925, -11.8475, -0.1475, 8.2925, -11.8475, 0.1475, 8.2925, 11.8475, 0.1475, -8.2925, 11.8475, -0.1475, 8.2925, 11.8475, 0.1475, 8.2925)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgkcn"]
+bounce = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_637q7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_33gxg"]
 
 [node name="Main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_clt03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_opose")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.11114, -0.612935, 0.782278, -0.0862149, 0.790134, 0.606841, -0.990058, 0, -0.140659, 3.94835, 0, 0)
+shadow_enabled = true
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PlayerBody" type="RigidBody3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135523, 1.05768, 0.10435)
+physics_material_override = SubResource("PhysicsMaterial_lgkcn")
+script = ExtResource("1_vnuaj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/PlayerBody"]
+mesh = SubResource("SphereMesh_637q7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerBody"]
+shape = SubResource("SphereShape3D_33gxg")
+
+[node name="CamPivot" type="Node3D" parent="Player"]
+
+[node name="Node3D" type="Node3D" parent="Player/CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0.263226, 1.92322, 3.39712)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978807, 0.204786, 0, -0.204786, 0.978807, 0.263226, 1.92322, 3.39712)
+script = ExtResource("2_uctu7")
