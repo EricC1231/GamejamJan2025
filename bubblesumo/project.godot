@@ -14,6 +14,10 @@ config/name="BubbleSumo"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 InputLeft={

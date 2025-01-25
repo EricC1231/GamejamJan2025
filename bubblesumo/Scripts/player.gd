@@ -10,6 +10,7 @@ func _ready() -> void:
 func died() -> void:
 	self.position = startingpos
 	self.linear_velocity = Vector3.ZERO
+	self.angular_velocity = Vector3.ZERO
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
