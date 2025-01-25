@@ -51,6 +51,8 @@ Jump={
 ]
 }
 
+import/blender/enabled=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

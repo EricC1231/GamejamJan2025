@@ -3,17 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< HEAD
-uid="uid://bgwxh3edpo6f2"
-=======
-uid="uid://b06iaqw8wa10t"
->>>>>>> 0a988c28fd6e4eda647803070caf08a1b37b709e
-path="res://.godot/imported/background.glb-d6247923bc9ca3a92a4cf965dff3f5b6.scn"
+uid="uid://dl1svr5yf4dk4"
+path="res://.godot/imported/Glitz-Pit.glb-68d64ac0bf32f1d836567d1dd50f10f0.scn"
 
 [deps]
 
-source_file="res://3dModels/Alex's Stuff/background.glb"
-dest_files=["res://.godot/imported/background.glb-d6247923bc9ca3a92a4cf965dff3f5b6.scn"]
+source_file="res://3dModels/Alex's Stuff/Glitz-Pit.glb"
+dest_files=["res://.godot/imported/Glitz-Pit.glb-68d64ac0bf32f1d836567d1dd50f10f0.scn"]
 
 [params]
 
