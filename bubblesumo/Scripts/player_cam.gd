@@ -2,6 +2,7 @@ extends Camera3D
 
 @onready var player:RigidBody3D = $"../../PlayerBody"
 @onready var camPivot:Node3D = $".."
+var speed:float = 10.0
 var offset:Vector3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,9 +25,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_pressed("InputForward")):
-		player.apply_force(-camPivot.transform.basis.z * 10)
+		player.apply_force(-camPivot.transform.basis.z * speed)
 	if(Input.is_action_pressed("InputBack")):
-		player.apply_force(camPivot.transform.basis.z * 10)
+		player.apply_force(camPivot.transform.basis.z * speed)
 	if(Input.is_action_pressed("Jump")):
 		player.apply_force(Vector3.UP*20)
 	camPivot.position = player.position

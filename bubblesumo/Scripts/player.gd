@@ -1,7 +1,9 @@
 extends RigidBody3D
 
 var startingpos:Vector3
+var time:float = 300.0
 
+var ServerPollTime:float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startingpos = position
@@ -14,9 +16,20 @@ func died() -> void:
 	GlobalScore.P2_Score += 1
 	$"../Control/Scoreval".text = str(GlobalScore.P1_Score)
 	$"../Control/Scoreval2".text = str(GlobalScore.P2_Score)
+	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	ServerPollTime +=delta
+	if(ServerPollTime > 0.1):
+		var arr:PackedFloat32Array = [self.global_position.x+10,self.global_position.y,self.global_position.z,
+		self.linear_velocity.x,self.linear_velocity.y,self.linear_velocity.z, float(GlobalScore.P2_Score)]
+		GlobalScore.SendData(arr)
+		ServerPollTime = 0
+		$"../Control/Scoreval".text = str(GlobalScore.P1_Score)
+		
+	time -= delta
+	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	if(global_position.y < -30):
 		died()
