@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://hq43obq6i1qc"]
+
+[ext_resource type="Script" path="res://Scenes/item_box.gd" id="1_5wuco"]
+[ext_resource type="PackedScene" uid="uid://cdyu4hpyi23c5" path="res://3dModels/Alex's Stuff/item_box.glb" id="2_tg35v"]
+
+[node name="ITEM BOX" type="Node3D"]
+script = ExtResource("1_5wuco")
+
+[node name="item_box" parent="." instance=ExtResource("2_tg35v")]

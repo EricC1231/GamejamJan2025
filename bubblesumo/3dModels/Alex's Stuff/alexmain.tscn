@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://de1lsfkue5epx"]
+
+[ext_resource type="PackedScene" uid="uid://ddypi0vsknqu8" path="res://Scenes/player.tscn" id="1_54ivf"]
+[ext_resource type="PackedScene" uid="uid://c4s5j3ira4qoy" path="res://Scenes/bumper.tscn" id="3_3308u"]
+[ext_resource type="ArrayMesh" uid="uid://di4b2o3u0nlqq" path="res://3dModels/Arena.obj" id="4_c37aw"]
+[ext_resource type="PackedScene" uid="uid://dlab6ostsue0o" path="res://Scenes/launch_platform.tscn" id="5_hwgrn"]
+[ext_resource type="PackedScene" uid="uid://hq43obq6i1qc" path="res://Scenes/item_box.tscn" id="5_sk5l7"]
+
+[sub_resource type="Gradient" id="Gradient_fff1t"]
+colors = PackedColorArray(5.58317e-06, 0.64618, 0.892941, 1, 1, 0.539309, 0.492153, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5bm8m"]
+frequency = 0.1028
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n83xq"]
+color_ramp = SubResource("Gradient_fff1t")
+noise = SubResource("FastNoiseLite_5bm8m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcfxr"]
+albedo_texture = SubResource("NoiseTexture2D_n83xq")
+albedo_texture_force_srgb = true
+roughness = 0.65
+
+[sub_resource type="BoxMesh" id="BoxMesh_clt03"]
+material = SubResource("StandardMaterial3D_gcfxr")
+size = Vector3(60, 0.295, 60)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6g2a4"]
+points = PackedVector3Array(-30, -0.1475, -30, -30, 0.1475, -30, 30, -0.1475, -30, -30, -0.1475, 30, -30, 0.1475, 30, 30, 0.1475, -30, 30, -0.1475, 30, 30, 0.1475, 30)
+
+[node name="Main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_clt03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6g2a4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.11114, -0.612935, 0.782278, -0.0862149, 0.790134, 0.606841, -0.990058, 0, -0.140659, 3.94835, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_54ivf")]
+
+[node name="bumper" parent="." instance=ExtResource("3_3308u")]
+
+[node name="Arena" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6919, 0.147503, -21.6388)
+mesh = ExtResource("4_c37aw")
+
+[node name="ITEM BOX" parent="." instance=ExtResource("5_sk5l7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43954, 1.9336, -3.25363)
+
+[node name="LaunchPlatform" parent="." instance=ExtResource("5_hwgrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
