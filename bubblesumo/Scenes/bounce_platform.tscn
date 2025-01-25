@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlab6ostsue0o"]
+[gd_scene load_steps=5 format=3 uid="uid://d2rpf1ntb4emp"]
 
-[ext_resource type="Script" path="res://Scripts/Cannon.gd" id="1_ke8nm"]
+[ext_resource type="Script" path="res://Scenes/bounce_platform.gd" id="1_pqygy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4rasb"]
 size = Vector3(5, 0.175, 5)
@@ -11,8 +11,8 @@ points = PackedVector3Array(-2.5, -0.0875, -2.5, -2.5, 0.0874829, -2.5, 2.5, -0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_eocx6"]
 size = Vector3(3.985, 0.315, 4.245)
 
-[node name="LaunchPlatform" type="StaticBody3D"]
-script = ExtResource("1_ke8nm")
+[node name="bounce_platform" type="StaticBody3D"]
+script = ExtResource("1_pqygy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_4rasb")

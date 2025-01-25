@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c4s5x57gethre"]
 
 [ext_resource type="PackedScene" uid="uid://ddypi0vsknqu8" path="res://Scenes/player.tscn" id="1_i6ex8"]
-[ext_resource type="PackedScene" uid="uid://d2rpf1ntb4emp" path="res://Scenes/launch_platform.tscn" id="2_4pv1b"]
+[ext_resource type="PackedScene" uid="uid://d2rpf1ntb4emp" path="res://Scenes/bounce_platform.tscn" id="2_4pv1b"]
 [ext_resource type="PackedScene" uid="uid://c4s5j3ira4qoy" path="res://Scenes/bumper.tscn" id="3_dctji"]
 
 [sub_resource type="Gradient" id="Gradient_fff1t"]
@@ -45,5 +45,6 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_i6ex8")]
 
 [node name="LaunchPlatform" parent="." instance=ExtResource("2_4pv1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
 
 [node name="bumper" parent="." instance=ExtResource("3_dctji")]
