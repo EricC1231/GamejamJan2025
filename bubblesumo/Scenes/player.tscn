@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddypi0vsknqu8"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_g5s8p"]
+[ext_resource type="ArrayMesh" uid="uid://bdxtlt2i4ddi7" path="res://3dModels/Bubble_Icosphere.res" id="2_0ssh8"]
+[ext_resource type="Script" path="res://Scripts/player_cam.gd" id="3_lg13l"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgkcn"]
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_33gxg"]
+
+[node name="Player" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.867, 2.25379, 0)
+
+[node name="PlayerBody" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135523, 1.05768, 0.10435)
+physics_material_override = SubResource("PhysicsMaterial_lgkcn")
+script = ExtResource("1_g5s8p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerBody"]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("2_0ssh8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
+shape = SubResource("SphereShape3D_33gxg")
+
+[node name="CamPivot" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0.263226, 1.92322, 3.39712)
+
+[node name="PlayerCam" type="Camera3D" parent="CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978807, 0.204786, 0, -0.204786, 0.978807, 0.263226, 1.92322, 3.39712)
+script = ExtResource("3_lg13l")

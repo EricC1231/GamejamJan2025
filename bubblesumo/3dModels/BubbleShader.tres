@@ -11,5 +11,5 @@ noise = SubResource("FastNoiseLite_r251b")
 [resource]
 render_priority = 0
 shader = ExtResource("1_mx353")
-shader_parameter/color = Vector3(0.25, 0.24, -0.36)
+shader_parameter/color = Vector3(1.64, 0.105, 1.82)
 shader_parameter/image = SubResource("NoiseTexture2D_qo3u5")
