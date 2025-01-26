@@ -83,3 +83,29 @@ offset_right = 597.0
 offset_bottom = 44.0
 theme_override_font_sizes/normal_font_size = 29
 text = "5:00"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 83.0
+offset_bottom = 79.0
+text = "host"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 47.0
+offset_right = 167.0
+offset_bottom = 78.0
+text = "join"
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 125.0
+offset_right = 80.0625
+offset_bottom = 156.0
+
+[connection signal="pressed" from="Control/Button" to="PlayerBody" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="PlayerBody" method="_on_button_2_pressed"]

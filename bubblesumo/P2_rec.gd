@@ -11,6 +11,8 @@ func _physics_process(delta: float) -> void:
 		var pos:Vector3 = Vector3(GlobalScore.recievedData[0],GlobalScore.recievedData[1],GlobalScore.recievedData[2])
 		var vel:Vector3 = Vector3(GlobalScore.recievedData[3],GlobalScore.recievedData[4],GlobalScore.recievedData[5])
 		var score:int = roundi(GlobalScore.recievedData[6])
+		if(!GlobalScore.isServer):
+			GlobalScore.GlobTime = GlobalScore.recievedData[7]
 		GlobalScore.P1_Score = score
 		global_position = pos
 		linear_velocity = vel
