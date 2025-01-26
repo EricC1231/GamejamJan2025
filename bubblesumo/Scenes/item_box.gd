@@ -25,11 +25,12 @@ func _physics_process(delta):
 		
 		match (option):
 			0:
-				player.camAccess.speed = 15
+				player.camAccess.speed = 30
 				player.Icon.texture = icons[0]
 				player.IconText.text = "Speed"
 			1:
-				player.mass = 1.5
+				player.mass = 2
+				player.gravity_scale = 0.6666666666666666666
 				player.Icon.texture = icons[1]
 				player.IconText.text = "Weight"
 			2:
@@ -43,6 +44,7 @@ func _physics_process(delta):
 				player.camAccess.speed = 10
 			1:
 				player.mass = 1
+				player.gravity_scale = 1
 			2:
 				player.scale = Vector3(1, 1, 1)
 				player.set_colliderScale(1)

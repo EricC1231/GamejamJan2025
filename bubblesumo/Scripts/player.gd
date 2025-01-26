@@ -81,3 +81,7 @@ func _on_body_entered(body: Node3D) -> void:
 		isBounce = true
 		
 	pass # Replace with function body.
+
+
+func _on_ground_check_body_entered(body):
+	pass # Replace with function body.
