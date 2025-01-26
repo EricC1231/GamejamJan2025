@@ -91,7 +91,7 @@ func setupClient(ip:String):
 	enabled = true;
 	pass
 	
-func setupClientByHostName(hostname:String):
+func setupClientByHostName(hostname:String) -> bool:
 	if(hostname == ""):
 		cli.create_client("ws://" + get_local_ip()+":30010")
 	else:
@@ -105,6 +105,10 @@ func setupClientByHostName(hostname:String):
 		#cli.put_packet("hello".to_ascii_buffer())
 	#else:
 		#print("Failed to connect!")
+	if(state == cli.CONNECTION_DISCONNECTED):
+		return false
+	else:
+		return true
 	set_process(true)
 	enabled = true;
 	pass

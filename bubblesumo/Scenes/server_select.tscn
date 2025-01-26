@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://pjj552ox12wi"]
+[gd_scene load_steps=2 format=3 uid="uid://1ihwnvl7s8f2"]
+
+[ext_resource type="Script" path="res://Scenes/server_select.gd" id="1_uap8y"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uap8y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -23,26 +26,50 @@ offset_left = 327.0
 offset_top = 51.0
 offset_right = 438.0
 offset_bottom = 152.0
-scale = Vector2(5, 5)
+scale = Vector2(1.5, 1.5)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Crash" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "CRASH
 "
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Join" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "JOIN"
+theme_override_font_sizes/font_size = 50
+text = "JOIN SERVER"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "START"
+theme_override_font_sizes/font_size = 50
+text = "START SERVER"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Server Name"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Crash" to="." method="_on_crash_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
