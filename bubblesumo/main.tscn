@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=3 uid="uid://c4s5x57gethre"]
 
 [ext_resource type="PackedScene" uid="uid://ddypi0vsknqu8" path="res://Scenes/player.tscn" id="1_i6ex8"]
-[ext_resource type="PackedScene" path="res://Scenes/item_box.tscn" id="3_b2aot"]
+[ext_resource type="PackedScene" uid="uid://hq43obq6i1qc" path="res://Scenes/item_box.tscn" id="3_b2aot"]
 [ext_resource type="PackedScene" uid="uid://c4s5j3ira4qoy" path="res://Scenes/bumper.tscn" id="3_dctji"]
 [ext_resource type="PackedScene" uid="uid://dtwidy2frf8vn" path="res://3dModels/Alex's Stuff/background.glb" id="5_2dfni"]
-[ext_resource type="ArrayMesh" uid="uid://s7gmbkquwpx2" path="res://3dModels/LevelElements2_Arena_001.res" id="7_3mg5b"]
-[ext_resource type="ArrayMesh" uid="uid://cdskic780jneh" path="res://3dModels/Bumper.obj" id="7_7xwjc"]
+[ext_resource type="ArrayMesh" path="res://3dModels/LevelElements2_Arena_001.res" id="7_3mg5b"]
+[ext_resource type="ArrayMesh" uid="uid://bjhirycbdqmmv" path="res://3dModels/Bumper.obj" id="7_7xwjc"]
 [ext_resource type="Script" path="res://P2_rec.gd" id="8_0mhyq"]
-[ext_resource type="Material" uid="uid://3sp8rvdxgjcq" path="res://3dModels/BubbleShaderp2.tres" id="8_m543r"]
-[ext_resource type="ArrayMesh" uid="uid://dt0krwo17e8iv" path="res://3dModels/LevelElements_Arena.res" id="8_qmtw5"]
-[ext_resource type="PackedScene" path="res://Scenes/bounce_platform2.tscn" id="10_rdi20"]
-[ext_resource type="PackedScene" path="res://Scenes/launch_platform2.tscn" id="11_862qx"]
+[ext_resource type="Material" uid="uid://d2yn2s4dclghh" path="res://3dModels/BubbleShaderp2.tres" id="8_m543r"]
+[ext_resource type="ArrayMesh" uid="uid://dwfd7bxwuq1q0" path="res://3dModels/LevelElements_Arena.res" id="8_qmtw5"]
+[ext_resource type="PackedScene" uid="uid://cpwtl62wobo2r" path="res://Scenes/bounce_platform2.tscn" id="10_rdi20"]
+[ext_resource type="PackedScene" uid="uid://b7nds7j4m31p" path="res://Scenes/launch_platform2.tscn" id="11_862qx"]
 
 [sub_resource type="Environment" id="Environment_kfpr1"]
 ambient_light_source = 2
@@ -88,6 +88,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.662, 41.3233, 48.6154)
 mesh = ExtResource("7_7xwjc")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="LevelElementsArena" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, -0.760008, -9.99196, 1.67021)
