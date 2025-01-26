@@ -89,6 +89,7 @@ func setupClient(ip:String):
 	#cli.put_packet("hello world".to_ascii_buffer())
 	set_process(true)
 	enabled = true;
+	return true
 	pass
 	
 func setupClientByHostName(hostname:String) -> bool:
@@ -96,6 +97,7 @@ func setupClientByHostName(hostname:String) -> bool:
 		cli.create_client("ws://" + get_local_ip()+":30010")
 	else:
 		cli.create_client("ws://"+IP.resolve_hostname(hostname)+":30010")
+	print(IP.resolve_hostname(hostname))
 	var state := cli.get_connection_status()
 	while state == cli.CONNECTION_CONNECTING:
 		state = cli.get_connection_status()
@@ -105,12 +107,13 @@ func setupClientByHostName(hostname:String) -> bool:
 		#cli.put_packet("hello".to_ascii_buffer())
 	#else:
 		#print("Failed to connect!")
-	if(state == cli.CONNECTION_DISCONNECTED):
-		return false
-	else:
-		return true
+
 	set_process(true)
 	enabled = true;
+	if(state == cli.CONNECTION_DISCONNECTED):
+		return true
+	else:
+		return true
 	pass
 
 

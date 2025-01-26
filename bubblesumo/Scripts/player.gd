@@ -3,6 +3,8 @@ extends RigidBody3D
 var startingpos:Vector3
 var time:float = 300.0
 
+var startingPoints:Array[Vector3] = [Vector3(-50,0,0),Vector3(50,0,0)]
+
 @onready var camAccess = $"../CamPivot/PlayerCam"
 
 var isBounce:bool = false
@@ -10,6 +12,10 @@ var isBounce:bool = false
 var ServerPollTime:float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if(GlobalScore.isServer):
+		self.position = startingPoints[0]
+	else:
+		self.position = startingPoints[1]
 	startingpos = position
 	pass # Replace with function body.
 
