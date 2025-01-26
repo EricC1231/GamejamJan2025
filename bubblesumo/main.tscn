@@ -49,6 +49,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.821, 2.46377, -45)
 [node name="bumper3" parent="." instance=ExtResource("3_dctji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.821, 2.46377, 45)
 
+[node name="bumper4" parent="." instance=ExtResource("3_dctji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4845, 2.464, 14.995)
+
+[node name="bumper5" parent="." instance=ExtResource("3_dctji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5155, 2.464, 14.995)
+
+[node name="bumper6" parent="." instance=ExtResource("3_dctji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4845, 2.464, -16.5585)
+
+[node name="bumper7" parent="." instance=ExtResource("3_dctji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5155, 2.464, -16.5585)
+
 [node name="ITEM BOX" parent="." instance=ExtResource("3_b2aot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4675, 2.25175, 0)
 
