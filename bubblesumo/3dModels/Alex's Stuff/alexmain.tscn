@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddypi0vsknqu8" path="res://Scenes/player.tscn" id="1_54ivf"]
 [ext_resource type="PackedScene" uid="uid://c4s5j3ira4qoy" path="res://Scenes/bumper.tscn" id="3_3308u"]
 [ext_resource type="ArrayMesh" uid="uid://di4b2o3u0nlqq" path="res://3dModels/Arena.obj" id="4_c37aw"]
-[ext_resource type="PackedScene" uid="uid://dlab6ostsue0o" path="res://Scenes/launch_platform.tscn" id="5_hwgrn"]
+[ext_resource type="PackedScene" uid="uid://d2rpf1ntb4emp" path="res://Scenes/launch_platform.tscn" id="5_hwgrn"]
 [ext_resource type="PackedScene" uid="uid://hq43obq6i1qc" path="res://Scenes/item_box.tscn" id="5_sk5l7"]
 
 [sub_resource type="Gradient" id="Gradient_fff1t"]

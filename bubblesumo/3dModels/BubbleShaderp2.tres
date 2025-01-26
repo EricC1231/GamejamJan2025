@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://3sp8rvdxgjcq"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d2yn2s4dclghh"]
 
 [ext_resource type="Shader" path="res://3dModels/Bubble.gdshader" id="1_xcuyc"]
 

@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 		var t:float = time*2
 		if t > 1:
 			t = 1-(t-1)
-		$MeshInstance3D.scale = Vector3.ONE + Vector3.ONE*t/2
+		$whacka.scale = Vector3.ONE + Vector3.ONE*t/2
 		if(time > 1):
 			time = 0
 			isAnim = false

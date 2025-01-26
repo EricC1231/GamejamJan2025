@@ -12,4 +12,4 @@ func _process(delta):
 
 func FIRE(ob:Node3D) -> void:
 	if ob.has_method("apply_impulse"):
-		ob.apply_impulse(Vector3(0, 30, 0))
+		ob.apply_impulse(Vector3(0, 20, 0))

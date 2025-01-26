@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpwtl62wobo2r"]
+
+[ext_resource type="Script" path="res://Scenes/bounce_platform.gd" id="1_tlqyc"]
+[ext_resource type="PackedScene" uid="uid://bc5gdcntc7y2p" path="res://3dModels/Alex's Stuff/pad_o_bounce.glb" id="2_t820b"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exhjn"]
+points = PackedVector3Array(-2.5, -0.0875, -2.5, -2.5, 0.0874829, -2.5, 2.5, -0.0875, -2.5, -2.5, -0.0875, 2.5, -2.5, 0.0874829, 2.5, 2.5, 0.0874829, -2.5, 2.5, -0.0875, 2.5, 2.5, 0.0874829, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eocx6"]
+size = Vector3(3.985, 0.315, 4.245)
+
+[node name="bounce_platform" type="StaticBody3D"]
+script = ExtResource("1_tlqyc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_exhjn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_eocx6")
+
+[node name="pad_o_bounce" parent="." instance=ExtResource("2_t820b")]
+transform = Transform3D(0.735, 0, 0, 0, 0.4, 0, 0, 0, 0.735, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="FIRE"]
