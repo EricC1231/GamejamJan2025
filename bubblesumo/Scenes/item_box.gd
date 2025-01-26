@@ -24,9 +24,10 @@ func _physics_process(delta):
 		
 		match (option):
 			0:
-				player.camAccess.speed = 15
+				player.camAccess.speed = 30
 			1:
-				player.mass = 1.5
+				player.mass = 2
+				player.gravity_scale = 0.6666666666666666666
 			2:
 				player.scale = Vector3(1.5, 1.5, 1.5)
 				player.set_colliderScale(1.5)
@@ -36,6 +37,7 @@ func _physics_process(delta):
 				player.camAccess.speed = 10
 			1:
 				player.mass = 1
+				player.gravity_scale = 1
 			2:
 				player.scale = Vector3(1, 1, 1)
 				player.set_colliderScale(1)
