@@ -3,6 +3,7 @@ extends Node3D
 var rot_timer = 0
 var player
 var play_timer = 0
+var option = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,20 +21,29 @@ func _physics_process(delta):
 	if play_timer > 0:
 		hide()
 		play_timer -= delta
-		var rng = RandomNumberGenerator.new()
-		var option =  rng.randi_range(0, 2)
 		
 		match (option):
 			0:
-				pass
+				player.camAccess.speed = 15
 			1:
-				pass
+				player.mass = 1.5
 			2:
-				pass
+				player.scale = Vector3(1.5, 1.5, 1.5)
+	elif (player != null):
+		match (option):
+			0:
+				player.camAccess.speed = 10
+			1:
+				player.mass = 1
+			2:
+				player.scale = Vector3(1, 1, 1)
+		player = null
 	else:
 		show()
 
 func FIRE(ob:Node3D) -> void:
-	if (true and not play_timer > 0):
+	if (not play_timer > 0 and ob.has_method("apply_impulse")):
+		var rng = RandomNumberGenerator.new()
+		option =  rng.randi_range(0, 2)
 		player = ob
 		play_timer = 20
