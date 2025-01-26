@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d06rdmfbvou2e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.10701e-06, 0.450518, 0.555827, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 50.0
+offset_top = 489.0
+offset_right = 197.0
+offset_bottom = 543.0
+scale = Vector2(7.13798, 2.64862)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "REPLAY"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "TO MAIN 
+MENU"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -3.0
+offset_right = 80.0
+offset_bottom = 20.0
+scale = Vector2(5.67, 6)
+text = "SCORE:
+"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 178.0
+offset_right = 83.0
+offset_bottom = 201.0
+scale = Vector2(5.25, 7.317)
+text = "winner:"

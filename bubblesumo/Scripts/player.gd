@@ -3,6 +3,8 @@ extends RigidBody3D
 var startingpos:Vector3
 var time:float = 300.0
 
+@onready var camAccess = $"../CamPivot/PlayerCam"
+
 var ServerPollTime:float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
