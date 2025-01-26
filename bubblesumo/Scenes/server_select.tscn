@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://1ihwnvl7s8f2"]
 
 [ext_resource type="Script" path="res://Scenes/server_select.gd" id="1_uap8y"]
-[ext_resource type="Texture2D" uid="uid://dv1wbg0d4gf41" path="res://Textures/background.png" id="2_xrh8r"]
-[ext_resource type="FontFile" uid="uid://b5q7r33uee2g6" path="res://Fonts/Devant Horgen.ttf" id="3_gb0jx"]
-[ext_resource type="Texture2D" uid="uid://6lm2ytrvty1y" path="res://Textures/icon-quit.png" id="4_nfjxu"]
-[ext_resource type="Texture2D" uid="uid://cgq780tkjgnqe" path="res://Textures/background-server.png" id="5_l7gqs"]
-[ext_resource type="Texture2D" uid="uid://b52navpad8pe3" path="res://Textures/back.png" id="6_td0yp"]
+[ext_resource type="Texture2D" uid="uid://3cksgctel8pa" path="res://Textures/background.png" id="2_xrh8r"]
+[ext_resource type="FontFile" uid="uid://dmp7fs5x0hoh6" path="res://Fonts/Devant Horgen.ttf" id="3_gb0jx"]
+[ext_resource type="Texture2D" uid="uid://defmthg02dt83" path="res://Textures/icon-quit.png" id="4_nfjxu"]
+[ext_resource type="Texture2D" uid="uid://ybkjd62uo2k7" path="res://Textures/background-server.png" id="5_l7gqs"]
+[ext_resource type="Texture2D" uid="uid://bbjb0bxdiu8fh" path="res://Textures/back.png" id="6_td0yp"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

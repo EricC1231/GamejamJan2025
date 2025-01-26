@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://hq43obq6i1qc"]
+[gd_scene load_steps=5 format=3 uid="uid://dfnbm8f06abw2"]
 
 [ext_resource type="Script" path="res://Scenes/item_box.gd" id="1_5wuco"]
-[ext_resource type="PackedScene" uid="uid://cdyu4hpyi23c5" path="res://3dModels/Alex's Stuff/item_box.glb" id="2_tg35v"]
+[ext_resource type="PackedScene" uid="uid://bolvg52sroj63" path="res://3dModels/Alex's Stuff/item_box.glb" id="2_tg35v"]
+[ext_resource type="AudioStream" uid="uid://di6k41bfmbm7u" path="res://Sound/powerup.wav" id="3_eg08q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mll01"]
 size = Vector3(3, 3, 3)
@@ -15,5 +16,8 @@ script = ExtResource("1_5wuco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_mll01")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eg08q")
 
 [connection signal="body_entered" from="Area3D" to="." method="FIRE"]

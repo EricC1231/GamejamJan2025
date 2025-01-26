@@ -61,6 +61,7 @@ func _process(delta: float) -> void:
 	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	if(global_position.y < -30):
 		died()
+		$"../Spawn".play()
 
 
 func _on_button_pressed() -> void:
@@ -79,6 +80,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if(body.has_method("apply_impulse") and GlobalScore.isServer and body != self):
 		self.apply_impulse(-(body.global_position-self.global_position).normalized()*20)
 		isBounce = true
+		$"../Push".play()
 		
 	pass # Replace with function body.
 

@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddypi0vsknqu8"]
+[gd_scene load_steps=12 format=3 uid="uid://ddypi0vsknqu8"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g5s8p"]
 [ext_resource type="ArrayMesh" uid="uid://bdxtlt2i4ddi7" path="res://3dModels/Bubble_Icosphere.res" id="2_0ssh8"]
 [ext_resource type="Script" path="res://Scripts/player_cam.gd" id="3_lg13l"]
+[ext_resource type="AudioStream" uid="uid://dyyi7y16bcfpx" path="res://Sound/kill.wav" id="4_mhrrt"]
+[ext_resource type="AudioStream" uid="uid://15cojrc0layv" path="res://Sound/music.wav" id="5_hdt7x"]
+[ext_resource type="AudioStream" uid="uid://bh7on7rdly6cc" path="res://Sound/push.wav" id="6_eoiuy"]
+[ext_resource type="AudioStream" uid="uid://dp2kykfjxgk5n" path="res://Sound/spawn.wav" id="7_nso42"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgkcn"]
 bounce = 0.2
@@ -190,6 +194,21 @@ grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(0.595, 0)
 stretch_mode = 2
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mhrrt")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hdt7x")
+autoplay = true
+
+[node name="Push" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_eoiuy")
+autoplay = true
+
+[node name="Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nso42")
+autoplay = true
 
 [connection signal="body_entered" from="PlayerBody/Area3D" to="PlayerBody" method="_on_body_entered"]
 [connection signal="pressed" from="Control/Button" to="PlayerBody" method="_on_button_pressed"]

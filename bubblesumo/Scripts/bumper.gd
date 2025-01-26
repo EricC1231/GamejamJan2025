@@ -22,4 +22,5 @@ func _on_bumper_bumpback_body_entered(ob: Node3D) -> void:
 	if ob.has_method("apply_impulse"):
 		ob.apply_impulse((self.global_position - ob.global_position).normalized() * 90)
 		isAnim = true
+		$AudioStreamPlayer.play()
 	pass # Replace with function body.
