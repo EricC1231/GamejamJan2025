@@ -10,12 +10,17 @@ var startingPoints:Array[Vector3] = [Vector3(-50,0,0),Vector3(50,0,0)]
 var isBounce:bool = false
 
 var ServerPollTime:float = 0.0
+
+func set_colliderScale(s:float):
+	$CollisionShape3D.shape.radius = s
+	$Area3D/CollisionShape3D.shape.radius = s
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(GlobalScore.isServer):
-		self.position = startingPoints[0]
+		self.global_position = startingPoints[0]
 	else:
-		self.position = startingPoints[1]
+		self.global_position = startingPoints[1]
 	startingpos = position
 	pass # Replace with function body.
 

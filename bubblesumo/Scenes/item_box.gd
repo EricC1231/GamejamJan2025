@@ -29,6 +29,7 @@ func _physics_process(delta):
 				player.mass = 1.5
 			2:
 				player.scale = Vector3(1.5, 1.5, 1.5)
+				player.set_colliderScale(1.5)
 	elif (player != null):
 		match (option):
 			0:
@@ -37,6 +38,7 @@ func _physics_process(delta):
 				player.mass = 1
 			2:
 				player.scale = Vector3(1, 1, 1)
+				player.set_colliderScale(1)
 		player = null
 	else:
 		show()

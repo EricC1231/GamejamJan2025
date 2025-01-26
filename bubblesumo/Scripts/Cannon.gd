@@ -12,14 +12,14 @@ func _process(delta: float) -> void:
 	
 func FIRE(ob:Node3D) -> void:
 	if ob.has_method("apply_impulse"):
-		const FORWARD_VEL = 10
+		var FORWARD_VEL = 10 * -sign(global_position.x)
 		
 		var HOW_LONG : float
 		var Y_vel : float
 		
-		HOW_LONG = self.position.x / FORWARD_VEL
+		HOW_LONG = self.global_position.x / FORWARD_VEL
 		Y_vel = ((0.5 * ob.get_gravity().y) * pow(HOW_LONG, 2)) / (HOW_LONG)
 		
-		var directional_launch = Vector3(FORWARD_VEL, Y_vel, 0)
+		var directional_launch = Vector3(FORWARD_VEL/2, Y_vel, 0)
 		
 		ob.apply_impulse(directional_launch)
