@@ -4,6 +4,7 @@ extends Camera3D
 @onready var camPivot:Node3D = $".."
 var speed:float = 10.0
 var offset:Vector3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	offset = self.global_position - player.position
@@ -28,8 +29,6 @@ func _physics_process(delta: float) -> void:
 		player.apply_force(-camPivot.transform.basis.z * speed)
 	if(Input.is_action_pressed("InputBack")):
 		player.apply_force(camPivot.transform.basis.z * speed)
-	if(Input.is_action_pressed("Jump")):
-		player.apply_force(Vector3.UP*20)
 	camPivot.position = player.position
 	#if(Input.is_action_pressed("InputRight")):
 		#camPivot.rotate(Vector3.UP,0.1*delta)

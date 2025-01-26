@@ -10,12 +10,20 @@ var startingPoints:Array[Vector3] = [Vector3(-50,0,0),Vector3(50,0,0)]
 var isBounce:bool = false
 
 var ServerPollTime:float = 0.0
+
+@onready var Icon:TextureRect = $"../Control/Control/TextureRect"
+@onready var IconText:RichTextLabel = $"../Control/RichTextLabel"
+
+func set_colliderScale(s:float):
+	$CollisionShape3D.shape.radius = s
+	$Area3D/CollisionShape3D.shape.radius = s
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(GlobalScore.isServer):
-		self.position = startingPoints[0]
+		self.global_position = startingPoints[0]
 	else:
-		self.position = startingPoints[1]
+		self.global_position = startingPoints[1]
 	startingpos = position
 	pass # Replace with function body.
 
@@ -47,7 +55,8 @@ func _process(delta: float) -> void:
 		if(GlobalScore.isBounce):
 			self.apply_impulse(-(GlobalScore.p2.global_position-self.global_position).normalized()*20)
 			GlobalScore.isBounce = false;
-		
+		if(time < 0):
+			get_tree().change_scene_to_file("res://Scenes/game_oger.gd")
 	time -= delta
 	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	if(global_position.y < -30):
@@ -71,4 +80,8 @@ func _on_body_entered(body: Node3D) -> void:
 		self.apply_impulse(-(body.global_position-self.global_position).normalized()*20)
 		isBounce = true
 		
+	pass # Replace with function body.
+
+
+func _on_ground_check_body_entered(body):
 	pass # Replace with function body.

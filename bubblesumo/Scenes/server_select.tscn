@@ -1,11 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://1ihwnvl7s8f2"]
+[gd_scene load_steps=2 format=3 uid="uid://1ihwnvl7s8f2"]
 
 [ext_resource type="Script" path="res://Scenes/server_select.gd" id="1_uap8y"]
-[ext_resource type="Texture2D" uid="uid://dv1wbg0d4gf41" path="res://Textures/background.png" id="2_xrh8r"]
-[ext_resource type="FontFile" uid="uid://b5q7r33uee2g6" path="res://Fonts/Devant Horgen.ttf" id="3_gb0jx"]
-[ext_resource type="Texture2D" uid="uid://6lm2ytrvty1y" path="res://Textures/icon-quit.png" id="4_nfjxu"]
-[ext_resource type="Texture2D" uid="uid://cgq780tkjgnqe" path="res://Textures/background-server.png" id="5_l7gqs"]
-[ext_resource type="Texture2D" uid="uid://b52navpad8pe3" path="res://Textures/back.png" id="6_td0yp"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,68 +20,44 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1.10701e-06, 0.450518, 0.555827, 1)
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect"]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 649.0
-texture = ExtResource("2_xrh8r")
-expand_mode = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -188.0
-offset_right = 84.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 327.0
+offset_top = 51.0
+offset_right = 438.0
+offset_bottom = 152.0
 scale = Vector2(1.5, 1.5)
 
-[node name="Crash" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gb0jx")
+size_flags_stretch_ratio = 0.0
+
+[node name="Crash" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "CRASH
 "
 
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
 [node name="Join" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gb0jx")
 theme_override_font_sizes/font_size = 50
 text = "JOIN SERVER"
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gb0jx")
 theme_override_font_sizes/font_size = 50
 text = "START SERVER"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gb0jx")
-theme_override_font_sizes/font_size = 45
-placeholder_text = "Server Name"
-alignment = 1
-caret_blink = true
-
-[node name="Quit" type="Button" parent="."]
-layout_mode = 2
-offset_left = 59.0
-offset_top = 52.0
-offset_right = 1067.0
-offset_bottom = 1060.0
-scale = Vector2(0.05, 0.05)
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("4_nfjxu")
-clip_text = true
-icon_alignment = 1
+placeholder_text = "Server Name"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false
@@ -96,43 +67,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.239216, 0.239216, 0.239216, 0)
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 649.0
-texture = ExtResource("5_l7gqs")
-expand_mode = 2
+color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -185.0
-offset_top = 64.0
-offset_right = 379.0
-offset_bottom = 238.0
+offset_left = -245.5
+offset_right = 245.5
+offset_bottom = 195.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_gb0jx")
-theme_override_font_sizes/normal_font_size = 100
-text = "Waiting for Client"
+theme_override_font_sizes/normal_font_size = 50
+text = "Waiting for client"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -98.0
-offset_top = 237.0
-offset_right = 79.0
-offset_bottom = 310.0
+offset_left = -249.0
+offset_top = 117.0
+offset_right = 242.0
+offset_bottom = 312.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("3_gb0jx")
-theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/normal_font_size = 50
 text = "Server Name:"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect2"]
@@ -140,38 +99,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -317.0
-offset_top = 322.0
-offset_right = 299.0
-offset_bottom = 517.0
+offset_left = -547.0
+offset_top = 263.0
+offset_right = 433.0
+offset_bottom = 458.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
 
-[node name="Quit2" type="Button" parent="ColorRect2"]
-visible = false
-layout_mode = 2
-offset_left = 59.0
-offset_top = 52.0
-offset_right = 1067.0
-offset_bottom = 1060.0
-scale = Vector2(0.05, 0.05)
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 50
-icon = ExtResource("6_td0yp")
-clip_text = true
-icon_alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 458.0
-offset_top = 45.0
-offset_right = 714.0
-offset_bottom = 97.0
-text = "BUBBLE SUMO"
-
-[connection signal="pressed" from="VBoxContainer/Crash" to="." method="_on_crash_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Crash" to="." method="_on_crash_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="ColorRect2/Quit2" to="." method="_on_quit_pressed"]
