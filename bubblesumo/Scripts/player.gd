@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 var startingpos:Vector3
-var time:float = 300.0
+var time:float = 3.0
 
 var startingPoints:Array[Vector3] = [Vector3(-50,0,0),Vector3(50,0,0)]
 
@@ -55,13 +55,15 @@ func _process(delta: float) -> void:
 		if(GlobalScore.isBounce):
 			self.apply_impulse(-(GlobalScore.p2.global_position-self.global_position).normalized()*20)
 			GlobalScore.isBounce = false;
-		if(time < 0):
-			get_tree().change_scene_to_file("res://Scenes/game_oger.gd")
+
 	time -= delta
 	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	if(global_position.y < -30):
 		died()
 		$"../Spawn".play()
+	if(time < 0.0):
+		print("timme")
+		get_tree().change_scene_to_file("res://Scenes/game_oger.tscn")
 
 
 func _on_button_pressed() -> void:

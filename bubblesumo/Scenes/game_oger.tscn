@@ -72,6 +72,7 @@ offset_left = 367.0
 offset_top = 57.0
 offset_right = 711.0
 offset_bottom = 171.0
+theme_override_font_sizes/normal_font_size = 100
 
 [node name="WinnerLable" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -79,6 +80,7 @@ offset_left = 463.0
 offset_top = 220.0
 offset_right = 807.0
 offset_bottom = 334.0
+theme_override_font_sizes/normal_font_size = 100
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="quit"]
