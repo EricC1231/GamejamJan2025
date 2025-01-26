@@ -3,6 +3,8 @@ extends RigidBody3D
 var startingpos:Vector3
 var time:float = 300.0
 
+var isBounce:bool = false
+
 var ServerPollTime:float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,14 +24,21 @@ func died() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	ServerPollTime +=delta
-	if(ServerPollTime > 0.1):
-		var arr:PackedFloat32Array = [self.global_position.x+10,self.global_position.y,self.global_position.z,
-		self.linear_velocity.x,self.linear_velocity.y,self.linear_velocity.z, float(GlobalScore.P2_Score), time]
+	if(ServerPollTime > 0.1 and GlobalScore.enabled):
+		var bounce:float = 0.0
+		if(isBounce):
+			bounce = 1.0
+			isBounce = false
+		var arr:PackedFloat32Array = [self.global_position.x,self.global_position.y,self.global_position.z,
+		self.linear_velocity.x,self.linear_velocity.y,self.linear_velocity.z, float(GlobalScore.P2_Score), time, bounce]
 		GlobalScore.SendData(arr) 
 		ServerPollTime = 0
 		$"../Control/Scoreval".text = str(GlobalScore.P1_Score)
 		if(!GlobalScore.isServer):
 			time = GlobalScore.GlobTime
+		if(GlobalScore.isBounce):
+			self.apply_impulse(-(GlobalScore.p2.global_position-self.global_position).normalized()*20)
+			GlobalScore.isBounce = false;
 		
 	time -= delta
 	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
@@ -46,4 +55,12 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	GlobalScore.setupClientByHostName($"../Control/LineEdit".text)
+	pass # Replace with function body.
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if(body.has_method("apply_impulse") and GlobalScore.isServer and body != self):
+		self.apply_impulse(-(body.global_position-self.global_position).normalized()*20)
+		isBounce = true
+		
 	pass # Replace with function body.

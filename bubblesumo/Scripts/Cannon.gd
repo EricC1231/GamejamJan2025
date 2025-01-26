@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	
 func FIRE(ob:Node3D) -> void:
 	if ob.has_method("apply_impulse"):
-		const FORWARD_VEL = 25
+		const FORWARD_VEL = 10
 		
 		var HOW_LONG : float
 		var Y_vel : float
