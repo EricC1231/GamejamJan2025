@@ -25,6 +25,7 @@ data = PackedVector3Array(-6.5605, -14.1444, -4.9702, -6.3, -14.1102, -4.9702, -
 [sub_resource type="SphereMesh" id="SphereMesh_v3uwk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_saxud"]
+radius = 1.0
 
 [node name="Main" type="Node3D"]
 
@@ -68,9 +69,11 @@ shape = SubResource("ConcavePolygonShape3D_iva8h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6824, 2.71253, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="P2_Reciever"]
+mass = 2.0
 script = ExtResource("8_0mhyq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="P2_Reciever/RigidBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_v3uwk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="P2_Reciever/RigidBody3D"]
