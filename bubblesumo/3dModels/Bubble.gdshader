@@ -13,10 +13,10 @@ void vertex() {
 }
 
 void fragment() {
-	ALPHA = 0.5;
+	ALPHA = 0.75;
 	METALLIC = 0.4;
 	ROUGHNESS = 0.1;
-	EMISSION = vec3(0.5,0.5,0.5)+color;
+	EMISSION = color;
 	ALBEDO = color;
 	// Called for every pixel the material is visible on.
 }

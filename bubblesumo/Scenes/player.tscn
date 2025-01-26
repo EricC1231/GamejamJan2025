@@ -25,6 +25,12 @@ script = ExtResource("1_g5s8p")
 cast_shadow = 0
 mesh = ExtResource("2_0ssh8")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerBody/MeshInstance3D"]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("2_0ssh8")
+skeleton = NodePath("../..")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
 shape = SubResource("SphereShape3D_33gxg")
 

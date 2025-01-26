@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dngorqw07d5ls"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://3sp8rvdxgjcq"]
 
-[ext_resource type="Shader" path="res://3dModels/Bubble.gdshader" id="1_mx353"]
+[ext_resource type="Shader" path="res://3dModels/Bubble.gdshader" id="1_xcuyc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r251b"]
 frequency = 0.0019
@@ -10,6 +10,6 @@ noise = SubResource("FastNoiseLite_r251b")
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_mx353")
-shader_parameter/color = Vector3(1, 0.015, 0.165)
+shader = ExtResource("1_xcuyc")
+shader_parameter/color = Vector3(-0.505, -0.65, 1.82)
 shader_parameter/image = SubResource("NoiseTexture2D_qo3u5")

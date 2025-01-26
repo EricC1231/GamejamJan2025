@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://67otej3hb20a"]
+
+[ext_resource type="Shader" path="res://3dModels/ground.gdshader" id="1_40lbt"]
+[ext_resource type="Texture2D" uid="uid://myk7khakscq0" path="res://Textures/grid.png" id="2_0pn5d"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_40lbt")
+shader_parameter/image = ExtResource("2_0pn5d")

@@ -4,6 +4,8 @@ var enabled:bool = false;
 var isServer:bool = false;
 var GlobTime:float = 0;
 
+var Effects:Array[String] = []
+
 var P1_Score:int = 0
 var P2_Score:int = 0
 var colledtedBuffer:bool = true
