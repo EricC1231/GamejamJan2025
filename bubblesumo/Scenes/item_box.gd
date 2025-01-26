@@ -55,8 +55,9 @@ func _physics_process(delta):
 		show()
 
 func FIRE(ob:Node3D) -> void:
-	if (not play_timer > 0 and ob.has_method("apply_impulse")):
+	if (not play_timer > 0 and ob.has_method("apply_impulse") and !ob.is_in_group("NonPlayer")):
 		var rng = RandomNumberGenerator.new()
 		option =  rng.randi_range(0, 2)
+		
 		player = ob
 		play_timer = 20
