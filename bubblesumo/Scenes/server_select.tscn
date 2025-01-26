@@ -60,14 +60,51 @@ theme_override_font_sizes/font_size = 50
 placeholder_text = "Server Name"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -245.5
+offset_right = 245.5
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Waiting for client"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 117.0
+offset_right = 242.0
+offset_bottom = 312.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Server Name:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -547.0
+offset_top = 263.0
+offset_right = 433.0
+offset_bottom = 458.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Crash" to="." method="_on_crash_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
