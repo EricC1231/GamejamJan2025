@@ -4,6 +4,7 @@ var rot_timer = 0
 var player
 var play_timer = 0
 var option = 0
+@onready var icons = [preload("res://Textures/icon-speed.png"),preload("res://Textures/icon-mass.png"),preload("res://Textures/icon-grow.png")]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,11 +26,17 @@ func _physics_process(delta):
 		match (option):
 			0:
 				player.camAccess.speed = 15
+				player.Icon.texture = icons[0]
+				player.IconText.text = "Speed"
 			1:
 				player.mass = 1.5
+				player.Icon.texture = icons[1]
+				player.IconText.text = "Weight"
 			2:
 				player.scale = Vector3(1.5, 1.5, 1.5)
 				player.set_colliderScale(1.5)
+				player.Icon.texture = icons[2]
+				player.IconText.text = "Scale"
 	elif (player != null):
 		match (option):
 			0:
@@ -39,6 +46,8 @@ func _physics_process(delta):
 			2:
 				player.scale = Vector3(1, 1, 1)
 				player.set_colliderScale(1)
+		player.Icon.texture = null
+		player.IconText.text = ""
 		player = null
 	else:
 		show()

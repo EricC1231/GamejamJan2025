@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dwv8tqv0oeh12"]
+[gd_scene load_steps=2 format=3 uid="uid://dwv8tqv0oeh12"]
+
+[ext_resource type="Script" path="res://Scenes/game_oger.gd" id="1_hllvn"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hllvn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -18,39 +21,64 @@ grow_vertical = 2
 color = Color(1.10701e-06, 0.450518, 0.555827, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 50.0
-offset_top = 489.0
-offset_right = 197.0
-offset_bottom = 543.0
-scale = Vector2(7.13798, 2.64862)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -507.5
+offset_top = -152.0
+offset_right = 507.5
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 100
 text = "REPLAY"
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "TO MAIN 
-MENU"
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 80
+text = "QUIT"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = -3.0
-offset_right = 80.0
-offset_bottom = 20.0
-scale = Vector2(5.67, 6)
+offset_left = 14.0
+offset_top = 34.0
+offset_right = 358.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 100
 text = "SCORE:
 "
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 178.0
-offset_right = 83.0
-offset_bottom = 201.0
-scale = Vector2(5.25, 7.317)
-text = "winner:"
+offset_left = 7.0
+offset_top = 196.0
+offset_right = 372.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 100
+text = "WINNER:"
+
+[node name="ScoreLable" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 57.0
+offset_right = 711.0
+offset_bottom = 171.0
+
+[node name="WinnerLable" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 220.0
+offset_right = 807.0
+offset_bottom = 334.0
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="quit"]

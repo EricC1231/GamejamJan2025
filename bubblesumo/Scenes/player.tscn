@@ -52,9 +52,11 @@ script = ExtResource("3_lg13l")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="P1Score" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -73,33 +75,43 @@ theme_override_font_sizes/normal_font_size = 29
 text = "0"
 
 [node name="P1Score2" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = 905.0
-offset_top = 1.0
-offset_right = 1058.0
-offset_bottom = 41.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_top = -1.0
+offset_right = -101.0
+offset_bottom = 39.0
+grow_horizontal = 0
 theme_override_font_sizes/normal_font_size = 29
 text = "P2 Score:"
 
 [node name="Scoreval2" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = 1035.0
-offset_top = 2.0
-offset_right = 1151.0
-offset_bottom = 42.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_bottom = 40.0
+grow_horizontal = 0
 theme_override_font_sizes/normal_font_size = 29
 text = "0"
 
 [node name="Scoreval3" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = 481.0
-offset_top = 4.0
-offset_right = 597.0
-offset_bottom = 44.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 40.0
+grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 29
 text = "5:00"
 
 [node name="Button" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 48.0
@@ -108,6 +120,7 @@ offset_bottom = 79.0
 text = "host"
 
 [node name="Button2" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 47.0
@@ -116,11 +129,55 @@ offset_bottom = 78.0
 text = "join"
 
 [node name="LineEdit" type="LineEdit" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 13.0
 offset_top = 125.0
 offset_right = 80.0625
 offset_bottom = 156.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_top = -101.0
+offset_right = -33.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/mono_font_size = 12
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.07, 0.07)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1000.0
+offset_top = -1000.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(0.595, 0)
+stretch_mode = 2
 
 [connection signal="body_entered" from="PlayerBody/Area3D" to="PlayerBody" method="_on_body_entered"]
 [connection signal="pressed" from="Control/Button" to="PlayerBody" method="_on_button_pressed"]

@@ -11,6 +11,9 @@ var isBounce:bool = false
 
 var ServerPollTime:float = 0.0
 
+@onready var Icon:TextureRect = $"../Control/Control/TextureRect"
+@onready var IconText:RichTextLabel = $"../Control/RichTextLabel"
+
 func set_colliderScale(s:float):
 	$CollisionShape3D.shape.radius = s
 	$Area3D/CollisionShape3D.shape.radius = s
@@ -52,7 +55,8 @@ func _process(delta: float) -> void:
 		if(GlobalScore.isBounce):
 			self.apply_impulse(-(GlobalScore.p2.global_position-self.global_position).normalized()*20)
 			GlobalScore.isBounce = false;
-		
+		if(time < 0):
+			get_tree().change_scene_to_file("res://Scenes/game_oger.gd")
 	time -= delta
 	$"../Control/Scoreval3".text = str(floori(time/60))+":"+str(floori(time)%60)
 	if(global_position.y < -30):
