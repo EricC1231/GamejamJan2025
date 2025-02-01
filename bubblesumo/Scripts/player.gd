@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 var startingpos:Vector3
-var time:float = 3.0
+var time:float = 300.0
 
 var startingPoints:Array[Vector3] = [Vector3(-50,0,0),Vector3(50,0,0)]
 
